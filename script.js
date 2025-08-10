@@ -7,7 +7,6 @@ const data = {
     title: "VP, AI Software & Autonomy",
     location: "San Jose • SF Bay Area",
     email: "aaronxcohen@gmail.com",
-    phone: "+1 408-679-3915",
     linkedin: "https://www.linkedin.com/in/aaronjcohen",
     summary: "Executive leader and 0→1 builder across agentic AI, autonomy and systems engineering. At NVIDIA, managed L1/L2 ADAS feature definitions and built an agentic AI framework to auto-generate requirements, tests, and simulation code. Earlier: founded perception validation at Cruise (10× org growth) and led autonomous testing at Lyft. NASA spacecraft systems engineer with 14 publications.",
     chips: ["Agentic AI", "LLMOps", "Autonomy Platforms", "Systems Engineering", "Safety & ASPICE/ISO 26262", "RAG & Graph Reasoning"],
@@ -33,42 +32,36 @@ const data = {
       title: "Agentic AI for Systems Engineering (NVIDIA)",
       badge: "0→1 product",
       text: "Incubated and led an internal startup to build agentic AI that decomposes product docs into engineering requirements, auto‑generates test cases and Python simulation code, and critiques outputs. Patent pending as primary inventor.",
-      links: [{label:"Career Brag (PDF)", href:"assets/docs/Aaron-Cohen-Career-Brag.pdf"}],
       tags: ["AI", "LLMOps", "Tooling"]
     },
     {
       title: "L2 ADAS Leadership for Global OEMs",
       badge: "Execution",
       text: "Owned system requirements for 9 Level‑2 features (ACC, LK, ALC, L2+/L2++ incl. Address‑to‑Address urban driving). Drove roll‑outs and collaborated with Mercedes‑Benz and Jaguar Land Rover.",
-      links: [{label:"CV (PDF)", href:"assets/docs/Aaron-Cohen-LinkedIn-Profile.pdf"}],
       tags: ["Autonomy", "Safety", "OEMs"]
     },
     {
       title: "Perception Simulation Pipeline (Cruise)",
       badge: "Scale",
       text: "Core developer automating the flow from on‑road events to log‑replay and end‑to‑end simulations; helped enable Cruise’s first uninterrupted 60‑minute autonomous SF drive; supported 10× org growth in 18 months and worked closely with the CEO.",
-      links: [{label:"Career Brag (PDF)", href:"assets/docs/Aaron-Cohen-Career-Brag.pdf"}],
       tags: ["Simulation", "ML Systems"]
     },
     {
       title: "V&V Philosophy & Toyota Transition (Lyft)",
       badge: "Process",
       text: "Built AV division philosophy and processes for verification/validation; member of the transition team during Toyota’s acquisition of Level 5.",
-      links: [{label:"Career Brag (PDF)", href:"assets/docs/Aaron-Cohen-Career-Brag.pdf"}],
       tags: ["V&V", "Leadership"]
     },
     {
       title: "Spacecraft & Flight Systems (NASA)",
       badge: "Deep Tech",
       text: "Electrical/Test Engineer for EcAMSat, UAV RF link design for GlobalHawk, sub‑orbital rocket avionics inventor, TechEdSat project management, and classified X‑37 work.",
-      links: [{label:"CV (PDF)", href:"assets/docs/Aaron-Cohen-LinkedIn-Profile.pdf"}],
       tags: ["Aerospace", "Systems"]
     },
     {
       title: "Disaster Response Communications (FEMA CA‑TF3)",
       badge: "Service",
       text: "Deployed to Hurricane Olivia (2018) and North Complex Fire (2020) to establish emergency communications for US&R operations.",
-      links: [{label:"CV (PDF)", href:"assets/docs/Aaron-Cohen-LinkedIn-Profile.pdf"}],
       tags: ["Operations", "Comms"]
     }
   ],
