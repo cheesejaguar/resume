@@ -1,39 +1,41 @@
 /* --------- Design Tokens --------- */
 :root{
-  --bg: #0b1020;
-  --bg-alt: #0d1226;
-  --text: #e5e7eb;
-  --muted: #a1a1aa;
-  --card: rgba(255,255,255,.06);
-  --glass: rgba(255,255,255,.08);
-  --border: rgba(255,255,255,.12);
-  --brand: #0ea5e9;
-  --brand-2: #22d3ee;
-  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  /* Retro terminal palette */
+  --bg: #000000;
+  --bg-alt: #020202;
+  --text: #c8facc; /* light phosphor green */
+  --muted: #6bd36b; /* dimmer green */
+  --card: rgba(0,255,0,.06);
+  --glass: rgba(0,255,0,.08);
+  --border: rgba(0,255,0,.22);
+  --brand: #00ff66; /* bright terminal green */
+  --brand-2: #00cc55;
+  --shadow: 0 10px 30px rgba(0, 255, 100, 0.12);
 }
 
 @media (prefers-color-scheme: light){
   :root{
-    --bg: #f7fafc;
-    --bg-alt: #ffffff;
-    --text: #0f172a;
-    --muted: #475569;
-    --card: rgba(15,23,42,.03);
-    --glass: rgba(15,23,42,.05);
-    --border: rgba(2,6,23,.08);
-    --shadow: 0 6px 22px rgba(2,6,23,.08);
+    /* Keep retro theme even when light mode preferred */
+    --bg: #000000;
+    --bg-alt: #020202;
+    --text: #c8facc;
+    --muted: #6bd36b;
+    --card: rgba(0,255,0,.06);
+    --glass: rgba(0,255,0,.08);
+    --border: rgba(0,255,0,.22);
+    --shadow: 0 6px 22px rgba(0, 255, 100, 0.12);
   }
 }
 
 :root[data-theme="light"]{
-  --bg: #f7fafc;
-  --bg-alt: #ffffff;
-  --text: #0f172a;
-  --muted: #475569;
-  --card: rgba(15,23,42,.03);
-  --glass: rgba(15,23,42,.05);
-  --border: rgba(2,6,23,.08);
-  --shadow: 0 6px 22px rgba(2,6,23,.08);
+  --bg: #000000;
+  --bg-alt: #020202;
+  --text: #c8facc;
+  --muted: #6bd36b;
+  --card: rgba(0,255,0,.06);
+  --glass: rgba(0,255,0,.08);
+  --border: rgba(0,255,0,.22);
+  --shadow: 0 6px 22px rgba(0, 255, 100, 0.12);
 }
 
 /* --------- Base --------- */
@@ -42,11 +44,9 @@ html{scroll-behavior:smooth}
 body{
   margin:0;
   color:var(--text);
-  background:
-    radial-gradient(1200px 700px at 10% -10%, rgba(56,189,248,.15), transparent 40%),
-    radial-gradient(900px 500px at 100% 0%, rgba(34,211,238,.12), transparent 40%),
-    linear-gradient(180deg, var(--bg-alt), var(--bg));
-  font: 400 16px/1.6 "Inter", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background: linear-gradient(180deg, var(--bg-alt), var(--bg));
+  font: 400 16px/1.6 "Share Tech Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  text-shadow: 0 0 6px rgba(0,255,100,0.3);
 }
 
 img{max-width:100%; display:block}
@@ -57,7 +57,7 @@ h1,h2,h3,h4{margin:0 0 .6rem 0; line-height:1.2}
 h1{font-size: clamp(1.8rem, 1.2rem + 2vw, 3rem)}
 h2{font-size: clamp(1.4rem, 1rem + 1.4vw, 2rem)}
 h3{font-size: clamp(1.1rem, .9rem + .8vw, 1.3rem)}
-.display{font: 800 clamp(2rem, 1.2rem + 3.6vw, 4rem)/1.05 "Space Grotesk", Inter, system-ui; letter-spacing:-.01em}
+.display{font: 800 clamp(2rem, 1.2rem + 3.6vw, 4rem)/1.05 "Share Tech Mono", ui-monospace, monospace; letter-spacing:-.01em}
 .eyebrow{letter-spacing:.12em; text-transform:uppercase; color:var(--muted); font-weight:600}
 
 .wrap{width:min(1100px, 92%); margin:0 auto}
@@ -68,7 +68,7 @@ h3{font-size: clamp(1.1rem, .9rem + .8vw, 1.3rem)}
   .cols{grid-template-columns: 1fr}
 }
 
-.glass{background:var(--glass); backdrop-filter:saturate(160%) blur(8px)}
+.glass{background:var(--glass); backdrop-filter:saturate(120%) blur(2px)}
 .rise{box-shadow:var(--shadow)}
 
 /* --------- Header --------- */
@@ -113,7 +113,7 @@ h3{font-size: clamp(1.1rem, .9rem + .8vw, 1.3rem)}
   background: var(--btn-bg);
 }
 .btn:hover{filter:brightness(1.08); text-decoration:none}
-.btn.primary{--btn-bg: linear-gradient(180deg, var(--brand), var(--brand-2)); border: none; color: #001b2b}
+.btn.primary{--btn-bg: linear-gradient(180deg, rgba(0,255,0,.2), rgba(0,255,0,.08)); border: 1px solid var(--border); color: var(--text)}
 .btn.ghost{background:transparent}
 
 /* --------- Sections --------- */
@@ -130,7 +130,7 @@ h3{font-size: clamp(1.1rem, .9rem + .8vw, 1.3rem)}
 .timeline .title{font-weight:700}
 .timeline .meta{color:var(--muted); margin:.25rem 0 .6rem 0; font-size:.95rem}
 .timeline .tags{display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.6rem}
-.tag{border:1px solid var(--border); border-radius:999px; padding:.15rem .5rem; font-size:.8rem; color:var(--muted)}
+.tag{border:1px solid var(--border); border-radius:2px; padding:.15rem .5rem; font-size:.8rem; color:var(--muted); background: rgba(0,255,0,.03)}
 
 .filters{display:flex; gap:.4rem; flex-wrap:wrap}
 .filters button{border:1px solid var(--border); background:transparent; color:var(--text); padding:.4rem .6rem; border-radius:10px; cursor:pointer}
@@ -143,7 +143,7 @@ h3{font-size: clamp(1.1rem, .9rem + .8vw, 1.3rem)}
 
 .facts{list-style:none; padding:0; margin:0; display:grid; gap:.6rem}
 .facts li{display:flex; gap:.5rem; align-items:flex-start}
-.facts li::before{content:"•"; margin-top:.12rem; color:var(--brand)}
+.facts li::before{content:">"; margin-top:.12rem; color:var(--brand)}
 
 .pubs summary{cursor:pointer}
 .pubs ul{margin-top:.8rem; display:grid; gap:.4rem}
