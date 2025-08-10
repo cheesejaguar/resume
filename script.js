@@ -342,23 +342,6 @@ if(awardsList && Array.isArray(data.awards)){
 // Year
 $("#year").textContent = new Date().getFullYear();
 
-// Theme toggle
-const root = document.documentElement;
-const savedTheme = localStorage.getItem("theme");
-if(savedTheme){ root.setAttribute("data-theme", savedTheme); }
-const themeBtn = $("#themeToggle");
-function updateThemeIcon(){
-  themeBtn.textContent = root.getAttribute("data-theme")==="light" ? "🌙" : "☀️";
-}
-updateThemeIcon();
-themeBtn.addEventListener("click", () => {
-  const current = root.getAttribute("data-theme");
-  const next = current==="light" ? "" : "light";
-  if(next) root.setAttribute("data-theme", next); else root.removeAttribute("data-theme");
-  localStorage.setItem("theme", next);
-  updateThemeIcon();
-});
-
 // Entrance animation (reduced motion aware)
 const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 if(!prefersReduced){

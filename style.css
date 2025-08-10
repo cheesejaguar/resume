@@ -87,7 +87,6 @@ h3{font-size: clamp(1.1rem, .9rem + .8vw, 1.3rem)}
 .site-nav{display:flex; align-items:center; gap:1rem; flex-wrap:wrap}
 .site-nav a{padding:.4rem .6rem; border-radius:10px; color:var(--text)}
 .site-nav a:hover{background:var(--card); text-decoration:none}
-#themeToggle{border:1px solid var(--border); background:transparent; color:var(--text); padding:.4rem .6rem; border-radius:10px; cursor:pointer}
 
 /* --------- Hero --------- */
 .hero{padding: 56px 0 24px}
