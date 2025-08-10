@@ -170,10 +170,32 @@ const data = {
   ],
 
   publications: [
-    "Payload hardware & experimental protocol for microgravity effects on gentamicin resistance (UPEC E. coli)",
-    "EcAMSat: Role of σs in antibiotic resistance of stationary‑phase E. coli in microgravity",
-    "EcAMSat: Space‑flight effects on antibiotic resistance of a pathogenic bacterium",
-    "EcAMSat: Small satellite to explore sigma factor response to gentamicin"
+    { title: "EcAMSat spaceflight measurements of the role of σs in antibiotic resistance of stationary phase Escherichia coli in microgravity", type: "journal_article", venue: "Life Sciences in Space Research", volume: "24", date: "2019-01" },
+    { title: "EcAMSat: Small Satellite to Examine E. coli's Response in Microgravity to the Antibiotic Gentamicin", type: "conference_paper", venue: "American Society for Gravitational and Space Research (ASGSR)", date: "2018-11-03" },
+    { title: "EcAMSat: A Small Satellite Flown to Explore the Role a Sigma Factor Plays in E. coli's Response to the Antibiotic Gentamicin", type: "conference_paper", venue: "34th Annual Meeting, ASGSR", date: "2018-10-29" },
+    { title: "EcAMSat and BioSentinel: Autonomous Bio Nanosatellites Addressing Strategic Knowledge Gaps for Manned Spaceflight Beyond LEO", type: "invited_talk", venue: "SUNY Polytechnic Institute (CNSE) Colloquium Series", date: "2017-03-24" },
+    { title: "2016", type: "book", venue: "Blurb", date: "2017-01", identifiers: { isbn: "9781366519481" }, notes: "Photography collection." },
+    { title: "Payload hardware and experimental protocol development to enable future testing of the effect of space microgravity on the resistance to gentamicin of uropathogenic Escherichia coli and its σs-deficient mutant", type: "journal_article", venue: "Life Sciences in Space Research", volume: "15", date: "2017-01", identifiers: { doi: "10.1016/j.lssr.2017.05.001" } },
+    { title: "EcAMSat: Effect of Space-Flight on Antibiotic Resistance of a Pathogenic Bacterium and its Genetic Basis", type: "conference_paper", venue: "AIAA Annual Meeting of the American Society for Gravitational and Space Research", date: "2015-11-11" },
+    { title: "Cost-Effective Icy Bodies Exploration using Small Satellite Missions", type: "conference_paper", venue: "International Astronautical Congress (IAC 2015)", date: "2015-10-12", identifiers: { paper_no: "IAC-15-B4.8.12" } },
+    { title: "E. coli AntiMicrobial Satellite (EcAMSat): Science Payload System Development and Test", type: "conference_paper", venue: "Small Satellite Conference", date: "2014-08-01", identifiers: { paper_no: "SSC14-WK-8" } },
+    { title: "Small Spacecraft Technology State of the Art", type: "technical_report", venue: "NASA", date: "2014-02-01", identifiers: { report_no: "NASA/TP–2014–216648/REV1" } },
+    { title: "From Napkin to Orbit in 9 Months; The TechEdSat Spacecraft Mission", type: "technical_report", venue: "NASA Technical Report Server", date: "2013-08-10" },
+    { title: "From Napkin to Orbit in 9 Months: The TechEdSat Spacecraft Mission", type: "conference_paper", venue: "Small Satellite Conference", date: "2013" },
+    { title: "Systems Development of Synchronized Network of Autonomous Positioning Satellites (SNAPS)", type: "conference_paper", venue: "AIAA SPACE 2011 Conference & Exposition", date: "2011-09-01", identifiers: { paper_no: "AIAA-2011-7208" } },
+    { title: "Electromagnetic Orientation System for Nanosatellite Navigation", type: "conference_paper", venue: "AIAA Guidance, Navigation, and Control Conference 2011", date: "2011-08-08", identifiers: { paper_no: "AIAA-2011-6466" } }
+  ],
+
+  awards: [
+    { title: "The \"It’s Alive!!!\" Award", issuer: "AIAA Small Satellite Technical Committee", date: "2018-05", description: "For presentation titled “NASA’s First 6U CubeSat: EcAMSat’s Preliminary Flight Results and Lessons Learned.”" },
+    { title: "NASA Group Achievement Award: ECAMSat Project Team", issuer: "NASA", date: "2018-01" },
+    { title: "Software Initial Award", issuer: "NASA", date: "2017-01", description: "For contributing to the release of scientific/technical software: \"Affordable Vehicle Avionics (AVA) System ARC-17725-1\"" },
+    { title: "Small Spacecraft Tech State of the Art Report Team — Group Achievement Award", issuer: "NASA Honor Award", date: "2014-11", description: "Participation in writing the Small Spacecraft Technology State of the Art paper." },
+    { title: "Space Flight Awareness Team Award", issuer: "NASA (Ames Research Center ISS Team)", date: "2014-05", description: "Recognition for contributions supporting NASA's human spaceflight program." },
+    { title: "CHARM Spacecraft Development Team — Group Achievement Award", issuer: "NASA Ames Honor Awards", date: "2013-06" },
+    { title: "TechEdSat Project Team — Group Achievement Award", issuer: "NASA Ames Honor Awards", date: "2013-06" },
+    { title: "Outstanding Aerospace Engineering Award", issuer: "San Jose State University — Mechanical & Aerospace Engineering", date: "2012-05", description: "For management of the TechEdSat spaceflight mission." },
+    { title: "Aerospace Engineering Outstanding Leadership Award", issuer: "San Jose State University — Aerospace Engineering", date: "2011-05", description: "For project management of Spacecraft Design 2010–2011." }
   ]
 };
 
@@ -287,11 +309,35 @@ data.patents.forEach(p => {
   patentCards.appendChild(card);
 });
 const pubList = $("#pubList");
-data.publications.forEach(p => {
-  const li = document.createElement("li");
-  li.textContent = p;
-  pubList.appendChild(li);
-});
+if(pubList){
+  pubList.innerHTML = "";
+  data.publications.forEach(pub => {
+    const li = document.createElement("li");
+    const bits = [];
+    if(pub.venue) bits.push(pub.venue);
+    if(pub.volume) bits.push(`Vol ${pub.volume}`);
+    if(pub.date) bits.push(pub.date);
+    const meta = bits.join(" • ");
+    li.innerHTML = `<div class="title">${pub.title}</div>${meta?`<div class="meta">${meta}</div>`:""}`;
+    pubList.appendChild(li);
+  });
+}
+
+// Honors & Awards
+const awardsList = $("#awardsList");
+if(awardsList && Array.isArray(data.awards)){
+  awardsList.innerHTML = "";
+  data.awards.forEach(a => {
+    const li = document.createElement("li");
+    const bits = [];
+    if(a.issuer) bits.push(a.issuer);
+    if(a.date) bits.push(a.date);
+    const meta = bits.join(" • ");
+    const desc = a.description ? `<div class="meta">${a.description}</div>` : "";
+    li.innerHTML = `<div class="title">${a.title}</div>${meta?`<div class=\"meta\">${meta}</div>`:""}${desc}`;
+    awardsList.appendChild(li);
+  });
+}
 
 // Year
 $("#year").textContent = new Date().getFullYear();

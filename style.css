@@ -147,6 +147,8 @@ h3{font-size: clamp(1.1rem, .9rem + .8vw, 1.3rem)}
 
 .pubs summary{cursor:pointer}
 .pubs ul{margin-top:.8rem; display:grid; gap:.4rem}
+.pubs li .title{font-weight:700}
+.pubs li .meta{color:var(--muted); font-size:.9rem}
 
 /* --------- Footer --------- */
 .site-footer{border-top:1px solid var(--border); padding:1.2rem 0; color:var(--muted)}
